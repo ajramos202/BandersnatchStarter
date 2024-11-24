@@ -56,17 +56,17 @@ if __name__ == "__main__":
 
     db = Database()
 
-    # print("Seeding the collection with 1,000 documents...")
-    # db.seed(1000)
+    print("Seeding the collection with 1,000 documents...")
+    db.seed(1000)
 
     print("Counting the documents in the collection...")
     print(f"Total documents: {db.count()}")
 
-    # print("Creating a DataFrame from the collection...")
-    # print(db.dataframe())
+    print("Creating a DataFrame from the collection...")
+    print(db.dataframe())
 
-    # print("Generating an HTML table from the DataFrame...")
-    # print(db.html_table())
+    print("Generating an HTML table from the DataFrame...")
+    rint(db.html_table())
 
-    # print("Resetting the collection...")
-    # db.reset()
+    print("Resetting the collection...")
+    db.reset()
