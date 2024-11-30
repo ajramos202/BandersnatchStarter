@@ -66,7 +66,7 @@ if __name__ == "__main__":
     print(db.dataframe())
 
     print("Generating an HTML table from the DataFrame...")
-    rint(db.html_table())
+    print(db.html_table())
 
-    print("Resetting the collection...")
-    db.reset()
+    # print("Resetting the collection...")
+    # db.reset()
