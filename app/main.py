@@ -10,7 +10,7 @@ from app.data import Database
 from app.graph import chart
 from app.machine import Machine
 
-SPRINT = 1
+SPRINT = 2
 APP = Flask(__name__)
 
 
@@ -45,8 +45,10 @@ def view():
     x_axis = request.values.get("x_axis") or options[1]
     y_axis = request.values.get("y_axis") or options[2]
     target = request.values.get("target") or options[4]
+    df = db.dataframe()
+    df["_id"] = df["_id"].astype(str)
     graph = chart(
-        df=db.dataframe(),
+        df=df,
         x=x_axis,
         y=y_axis,
         target=target,
