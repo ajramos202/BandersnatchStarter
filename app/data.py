@@ -40,16 +40,25 @@ class Database:
         return self.collection.count_documents({})
 
     def dataframe(self) -> DataFrame:
-        '''Function that returns the entire collection as a dataframe'''
-        documents = list(self.collection.find({}))
-        df = DataFrame(documents)
-        return df
+
+        '''Function that returns the entire collection as a dataframe without the _id column'''
+        try:
+            # Query the MongoDB collection but exclude the _id field
+            documents = list(self.collection.find({}))
+            # Convert the list of documents into a DataFrame
+            df = DataFrame(documents)
+
+            return df
+        except Exception as e:
+
+            print(f"Error fetching documents: {e}")
+            return DataFrame()
 
     def html_table(self) -> str:
         '''Function that returns an HTML table representation
         of the dataframe'''
         df = self.dataframe()
-        return df.to_html() if not df.empty else None
+        return df.to_html(index=False) if not df.empty else None
 
 
 if __name__ == "__main__":
